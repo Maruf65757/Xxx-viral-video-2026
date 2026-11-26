@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Viral Video Link 2026</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    * { box-sizing: border-box; font-family: Arial, sans-serif; }
+    body {
+      margin: 0;
+      padding: 14px;
+      background: #0f172a;
+      color: #f8fafc;
+    }
+    .banner-ad {
+      background: #1e293b;
+      border: 1px dashed #38bdf8;
+      color: #94a3b8;
+      text-align: center;
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      font-size: 13px;
+    }
+    .hero-title {
+      font-size: 24px;
+      font-weight: 800;
+      text-align: center;
+      margin: 10px 0 16px;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #1e293b;
+      color: #cbd5e1;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .tab-btn.active {
+      background: #2563eb;
+      color: #fff;
+    }
+    .section { display: none; }
+    .section.active { display: block; }
+    .card {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 12px;
+      border: 1px solid #334155;
+    }
+    .card h3 { margin: 0 0 6px; font-size: 17px; }
+    .card p { margin: 0 0 12px; color: #94a3b8; font-size: 14px; }
+    .btn {
+      width: 100%;
+      padding: 11px;
+      border: none;
+      border-radius: 8px;
+      background: #10b981;
+      color: #fff;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .btn-secondary {
+      background: #3b82f6;
+      margin-top: 8px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: 1px solid #475569;
+      background: #0f172a;
+      color: #fff;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.82);
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 999;
+    }
+    .modal.show { display: flex; }
+    .modal-box {
+      width: 100%;
+      max-width: 380px;
+      background: #1e293b;
+      border-radius: 14px;
+      padding: 18px;
+      text-align: center;
+      border: 1px solid #475569;
+    }
+    .progress {
+      background: #334155;
+      height: 8px;
+      border-radius: 99px;
+      overflow: hidden;
+      margin: 12px 0;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 25%;
+      background: #10b981;
+      transition: width 0.3s;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Banner Ad Slot -->
+  <div class="banner-ad" id="topBanner">
+    TOP BANNER AD SLOT (Paste Banner Ad Code / Link Here)
+  </div>
+
+  <!-- Main English Heading -->
+  <h1 class="hero-title">Viral Video Link 2026</h1>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('videos', this)">Videos</button>
+    <button class="tab-btn" onclick="switchTab('order', this)">Order / Run Ad</button>
+  </div>
+
+  <!-- Videos List Container -->
+  <div id="videos" class="section active"></div>
+
+  <!-- Order & Run Ad Section -->
+  <div id="order" class="section">
+    <div class="card">
+      <h3>Run Ad / Place Order</h3>
+      <p>Submit your ad link or promotion order details below.</p>
+      <form onsubmit="submitOrder(event)">
+        <select id="orderType" required>
+          <option value="Run Ad Campaign">Run Ad Campaign</option>
+          <option value="Video Promotion Order">Video Promotion Order</option>
+          <option value="Banner Placement Order">Banner Placement Order</option>
+        </select>
+        <input type="url" id="targetLink" placeholder="Enter your Ad / Target URL (https://...)" required />
+        <input type="text" id="budgetNote" placeholder="Budget / Package / Notes" required />
+        <button type="submit" class="btn btn-secondary">Submit Order</button>
+      </form>
+      <p id="orderStatus" style="margin-top:10px; color:#34d399;"></p>
+    </div>
+  </div>
+
+  <!-- Bottom Banner Ad Slot -->
+  <div class="banner-ad" id="bottomBanner">
+    BOTTOM BANNER AD SLOT (Paste Banner Ad Code / Link Here)
+  </div>
+
+  <!-- 4-Step Ad Unlock Modal -->
+  <div class="modal" id="unlockModal">
+    <div class="modal-box">
+      <h3 id="modalTitle">Unlock Video</h3>
+      <p id="stepText">Step 1 of 4</p>
+      <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <p id="timerText" style="color:#fbbf24; font-weight:bold;"></p>
+      <button class="btn" id="adActionBtn" onclick="handleAdStep()">Open Ad 1 / 4</button>
+      <button class="btn" id="finalLinkBtn" style="display:none; background:#2563eb;" onclick="openFinalVideo()">
+        Watch Unlocked Video
+      </button>
+      <button class="btn" style="background:#475569; margin-top:8px;" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const tg = window.Telegram?.WebApp;
+    if (tg) tg.expand();
+
+    // 1. Add your 4 Ad Direct Links here
+    const AD_LINKS = [
+      "https://example.com/ad1",
+      "https://example.com/ad2",
+      "https://example.com/ad3",
+      "https://example.com/ad4"
+    ];
+
+    // 2. Add or edit your videos right here
+    const VIDEO_LIST = [
+      {
+        title: "Trending Clip #01",
+        description: "Complete 4 quick ad steps to unlock the video link.",
+        url: "https://example.com/video1"
+      },
+      {
+        title: "Trending Clip #02",
+        description: "Complete 4 quick ad steps to unlock the video link.",
+        url: "https://example.com/video2"
+      }
+    ];
+
+    const WAIT_SECONDS = 5;
+    let currentStep = 0;
+    let unlockedUrl = "";
+    let countdownInterval = null;
+
+    function renderVideos() {
+      const container = document.getElementById("videos");
+      if (!Array.isArray(VIDEO_LIST) || VIDEO_LIST.length === 0) {
+        container.innerHTML = `<div class="card"><p>No videos added yet.</p></div>`;
+        return;
+      }
+
+      container.innerHTML = VIDEO_LIST.map(item => `
+        <div class="card">
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.description || "Complete 4 quick ad steps to unlock.")}</p>
+          <button class="btn" onclick="startUnlock('${escapeJs(item.title)}', '${escapeJs(item.url)}')">
+            Unlock Video (4 Ads)
+          </button>
+        </div>
+      `).join("");
+    }
+
+    function escapeHtml(str = "") {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function escapeJs(str = "") {
+      return String(str).replace(/\/g, "\\").replace(/'/g, "\'");
+    }
+
+    function switchTab(tabId, btn) {
+      document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      document.getElementById(tabId).classList.add("active");
+      btn.classList.add("active");
+    }
+
+    function startUnlock(title, videoUrl) {
+      currentStep = 0;
+      unlockedUrl = videoUrl;
+      document.getElementById("modalTitle").innerText = title;
+      document.getElementById("finalLinkBtn").style.display = "none";
+      document.getElementById("adActionBtn").style.display = "block";
+      document.getElementById("adActionBtn").disabled = false;
+      document.getElementById("timerText").innerText = "";
+      updateStepUI();
+      document.getElementById("unlockModal").classList.add("show");
+    }
+
+    function updateStepUI() {
+      const stepNum = currentStep + 1;
+      document.getElementById("stepText").innerText = `Step ${stepNum} of 4`;
+      document.getElementById("progressBar").style.width = `${(stepNum / 4) * 100}%`;
+      document.getElementById("adActionBtn").innerText = `Open Ad ${stepNum} / 4`;
+    }
+
+    function handleAdStep() {
+      const adUrl = AD_LINKS[currentStep] || AD_LINKS[0];
+      window.open(adUrl, "_blank");
+
+      const btn = document.getElementById("adActionBtn");
+      btn.disabled = true;
+      let left = WAIT_SECONDS;
+      document.getElementById("timerText").innerText = `Please wait ${left}s after viewing ad...`;
+
+      clearInterval(countdownInterval);
+      countdownInterval = setInterval(() => {
+        left--;
+        if (left > 0) {
+          document.getElementById("timerText").innerText = `Please wait ${left}s after viewing ad...`;
+        } else {
+          clearInterval(countdownInterval);
+          document.getElementById("timerText").innerText = "Step verified!";
+          currentStep++;
+
+          if (currentStep < 4) {
+            btn.disabled = false;
+            updateStepUI();
+          } else {
+            btn.style.display = "none";
+            document.getElementById("stepText").innerText = "All 4 Ads Completed!";
+            document.getElementById("progressBar").style.width = "100%";
+            document.getElementById("finalLinkBtn").style.display = "block";
+          }
+        }
+      }, 1000);
+    }
+
+    function openFinalVideo() {
+      if (unlockedUrl) {
+        window.open(unlockedUrl, "_blank");
+      }
+    }
+
+    function closeModal() {
+      clearInterval(countdownInterval);
+      document.getElementById("unlockModal").classList.remove("show");
+    }
+
+    function submitOrder(e) {
+      e.preventDefault();
+      const type = document.getElementById("orderType").value;
+      const link = document.getElementById("targetLink").value;
+      const note = document.getElementById("budgetNote").value;
+
+      const payload = { type, link, note };
+      if (tg && tg.initDataUnsafe?.user) {
+        tg.sendData(JSON.stringify(payload));
+      }
+
+      document.getElementById("orderStatus").innerText =
+        `Order submitted: ${type} (${note})`;
+      e.target.reset();
+    }
+
+    renderVideos();
+  </script>
+</body>
+</html>
